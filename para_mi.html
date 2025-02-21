@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mí</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo" style="color: white; text-decoration: none;">Being Humans</a>
+        <ul class="nav-links">
+            <li><a href="formacion.html">Formación</a></li>
+            <li><a href="comunidad.html">Comunidad</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="campus.html">Campus</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Para Mí</h2>
+        <form id="form-para-mi">
+            <div id="step-1">
+                <label for="email">Email de contacto:</label>
+                <input type="email" id="email" required>
+                <button type="button" onclick="nextStep('form-para-mi')">Siguiente</button>
+            </div>
+            <div id="step-2" style="display: none;">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" required>
+
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" required>
+
+                <label for="rol">Rol:</label>
+                <input type="text" id="rol" required>
+
+                <label for="telefono">Número de contacto:</label>
+                <input type="tel" id="telefono" required>
+
+                <button type="submit">Agendar una reunión</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
