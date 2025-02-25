@@ -9,3 +9,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const submitBtn = document.getElementById("submitBtn");
+
+    if (submitBtn) {
+        submitBtn.addEventListener("click", function (event) {
+            event.preventDefault(); // Evita el envío del formulario
+            window.location.href = "confirmacion.html"; // Redirige a la página de confirmación
+        });
+    }
+});
