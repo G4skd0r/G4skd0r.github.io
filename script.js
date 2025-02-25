@@ -1,4 +1,4 @@
 function nextStep(formId) {
-    document.querySelector(`#${formId} #step1`).classList.add("hidden");
-    document.querySelector(`#${formId} #step2`).classList.remove("hidden");
+    document.querySelector(`#${formId} #step-1`).style.display = "none";
+    document.querySelector(`#${formId} #step-2`).style.display = "block";
 }
