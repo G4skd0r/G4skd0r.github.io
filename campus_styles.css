@@ -879,3 +879,128 @@ body {
   }
 }
 
+/* Para la columna izquierda */
+.left-column #left-col-comunidad .class-list {
+  list-style: none;
+  padding: 0;
+}
+
+.left-column .class-item {
+  padding: 8px 0;
+  color: #007BFF;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.left-column .class-item:hover {
+  color: #0056b3;
+}
+.left-column .active-item {
+  font-weight: bold;
+  color: #004080;
+}
+
+/* Fade in / out */
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+}
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+/* Columna central: entrepares */
+.comunidad-title {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.comunidad-fotos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.foto-entrepares {
+  text-align: center;
+}
+
+.entrepares-foto {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+/* Columna derecha: entrepares input */
+.texto-pares {
+  margin-top: 15px;
+  text-align: center;
+}
+.texto-pares-input {
+  width: 80%;
+  display: block;
+  margin: 5px auto;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Columna central: #1a1 */
+.comunidad-unoauno {
+  text-align: center;
+}
+
+.coach-foto {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+.objetivos-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.objetivo {
+  width: 90px;
+  height: 50px;
+  border-radius: 5px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verde {
+  background-color: #28a745;
+}
+.amarillo {
+  background-color: #ffc107;
+  color: #000;
+}
+.rojo {
+  background-color: #dc3545;
+}
+
+/* Columna derecha: #1a1 input */
+.texto-coach {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.texto-coach-input {
+  width: 80%;
+  display: block;
+  margin: 5px auto;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
