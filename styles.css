@@ -105,3 +105,72 @@ button[type="submit"] {
     padding: 12px;
     font-size: 18px;
 }
+
+/* 📍 Configuración base: Diseño desktop */
+body {
+  font-size: 16px;
+}
+
+.campus-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px;
+}
+
+/* 📍 Hacer que las columnas sean flexibles */
+.campus-column {
+  flex: 1;
+}
+
+/* 📍 Estilos de los botones en desktop */
+.btn-formacion {
+  width: 80%;
+  padding: 15px;
+  font-size: 18px;
+}
+
+/* 📍 Ajustes para TABLETS (pantallas menores a 1024px) */
+@media (max-width: 1024px) {
+  .campus-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .campus-column {
+    width: 100%;
+    text-align: center;
+  }
+
+  .btn-formacion {
+    width: 90%;
+    font-size: 16px;
+  }
+}
+
+/* 📍 Ajustes para MÓVILES (pantallas menores a 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links-right {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .campus-container {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .btn-formacion {
+    width: 100%;
+    font-size: 14px;
+    padding: 12px;
+  }
+}

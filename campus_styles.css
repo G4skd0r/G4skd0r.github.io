@@ -60,6 +60,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 20px;
 }
 
 .calendar-column {
@@ -69,10 +70,67 @@ body {
   align-items: center;
 }
 
+/* Notificación Popup */
+.notification {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  width: 90%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Cartel estilo foro */
+.forum-card {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  text-align: left;
+}
+
+/* Botones con menú desplegable */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 80%;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 100%;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px;
+  display: block;
+  text-align: left;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 /* Botones */
 .btn-campus {
   display: block;
-  width: 80%;
+  width: 100%;
   margin: 10px 0;
   padding: 12px;
   font-size: 16px;
@@ -89,30 +147,7 @@ body {
   background-color: #0056b3;
 }
 
-/* Notificación */
-.notification {
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 20px;
-  width: 90%;
-}
-
-/* Cartel estilo foro */
-.forum-card {
-  background-color: white;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  text-align: left;
-}
-
-/* Barra de progreso más estilizada */
+/* Barra de progreso */
 .progress-section {
   width: 90%;
   text-align: left;
@@ -139,9 +174,10 @@ body {
   height: 100%;
   background-color: #007BFF;
   transition: width 0.5s ease-in-out;
+  width: 43%;
 }
 
-/* Estilos del Calendario */
+/* Restaurar estilos del calendario */
 .calendar-container {
   background-color: white;
   padding: 20px;
@@ -174,3 +210,672 @@ body {
   background-color: #f0f0f0;
   cursor: pointer;
 }
+
+/* Estilos para los botones de formación */
+.formacion-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn-formacion {
+  width: 80%;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Color azul y hover */
+.blue-button {
+  background-color: #007BFF;
+  color: white;
+}
+
+.blue-button:hover {
+  background-color: #0056b3;
+}
+
+/* 📍 Configuración base: Diseño desktop */
+body {
+  font-size: 16px;
+}
+
+.campus-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px;
+}
+
+/* 📍 Hacer que las columnas sean flexibles */
+.campus-column {
+  flex: 1;
+}
+
+/* 📍 Estilos de los botones en desktop */
+.btn-formacion {
+  width: 80%;
+  padding: 15px;
+  font-size: 18px;
+}
+
+/* 📍 Ajustes para TABLETS (pantallas menores a 1024px) */
+@media (max-width: 1024px) {
+  .campus-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .campus-column {
+    width: 100%;
+    text-align: center;
+  }
+
+  .btn-formacion {
+    width: 90%;
+    font-size: 16px;
+  }
+}
+
+/* 📍 Ajustes para MÓVILES (pantallas menores a 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links-right {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .campus-container {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .btn-formacion {
+    width: 100%;
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+/* 📌 Estilos para la columna izquierda (Índice de clases) */
+.left-column {
+  padding: 20px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.class-list {
+  list-style: none;
+  padding: 0;
+}
+
+.class-item {
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.class-item:hover {
+  background-color: #b0b0b0;
+}
+
+.next-section {
+  font-size: 16px;
+  font-weight: bold;
+  color: gray;
+  margin-top: 15px;
+}
+
+/* 📌 Estilos para la columna central (Foro) */
+.forum-box {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.forum-input {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.forum-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.forum-button:hover {
+  background-color: #0056b3;
+}
+
+/* 📌 Estilos para los comentarios en el foro */
+.forum-comment {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-top: 15px;
+}
+
+.forum-actions {
+  margin-top: 10px;
+}
+
+.like-button, .same-doubt-button, .reply-button {
+  background: none;
+  border: none;
+  color: #007BFF;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.like-button.active, .same-doubt-button.active {
+  color: #0056b3;
+}
+
+/* 📌 Estilos para la columna derecha (Botones) */
+.right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.right-column button {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.right-column button:hover {
+  background-color: #0056b3;
+}
+
+/* 📌 Estilos para el botón "Volver" */
+.back-button {
+  background-color: transparent;
+  color: #007BFF;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para la columna izquierda (Índice de clases) */
+.left-column {
+  padding: 20px;
+  text-align: left;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.class-list {
+  list-style: none;
+  padding: 0;
+}
+
+.class-item {
+  padding: 10px;
+  color: #007BFF;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.class-item:hover {
+  color: #0056b3;
+}
+
+/* Estilos para la columna central (Foro) */
+.forum-feed {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.forum-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.forum-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.forum-button:hover {
+  background-color: #0056b3;
+}
+
+.forum-comment {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-top: 15px;
+}
+
+.forum-actions {
+  margin-top: 10px;
+}
+
+.like-button, .same-doubt-button, .reply-button {
+  background: none;
+  border: none;
+  color: #007BFF;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.like-button.active, .same-doubt-button.active {
+  color: #0056b3;
+}
+
+/* Estilos para la columna derecha (Botones de acción) */
+.right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.right-btn {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.right-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para el botón "Volver" */
+.back-button {
+  background-color: transparent;
+  color: #007BFF;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+.left-column {
+  overflow-y: auto;
+  max-height: 80vh;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.class-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.class-item {
+  padding: 8px 0;
+  color: #007BFF;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.class-item:hover {
+  color: #0056b3;
+}
+
+.active-item {
+  font-weight: bold;
+  color: #004080;
+}
+
+
+/* Importar la tipografía original */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+/* ------------------ NAVBAR ------------------ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333;
+  padding: 12px 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.nav-links-right {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links-right li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ------------------ LAYOUT GENERAL ------------------ */
+.campus-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px;
+}
+
+.left-column {
+  /* Inicialmente se mostrará vacío en mi_formacion.html */
+  overflow-y: auto;
+  max-height: 80vh;
+  text-align: left;
+  padding: 20px;
+  flex: 1;
+}
+
+.middle-column {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.right-column {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* ------------------ ÍNDICE DE CLASES (LEFT COLUMN) ------------------ */
+.class-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.class-item {
+  padding: 8px 0;
+  color: #007BFF;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.class-item:hover {
+  color: #0056b3;
+}
+
+.active-item {
+  font-weight: bold;
+  color: #004080;
+}
+
+/* ------------------ BOTÓN VOLVER (ARRIBA DEL FORO) ------------------ */
+.back-button-container {
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: left;
+}
+
+.back-button {
+  background-color: transparent;
+  color: #007BFF;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+/* ------------------ FORO (MIDDLE COLUMN) ------------------ */
+.forum-feed {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin: auto; /* Centra el foro en la columna */
+}
+
+.forum-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.forum-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 15px; /* Separa el botón del resto */
+}
+
+.forum-button:hover {
+  background-color: #0056b3;
+}
+
+.forum-posts {
+  margin-top: 10px;
+}
+
+.forum-comment {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-top: 15px;
+}
+
+.forum-actions {
+  margin-top: 10px;
+}
+
+.like-button,
+.same-doubt-button,
+.reply-button {
+  background: none;
+  border: none;
+  color: #007BFF;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.like-button.active,
+.same-doubt-button.active {
+  color: #0056b3;
+}
+
+/* Cuadro para responder (reply-box) */
+.reply-box {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.reply-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.send-reply {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.send-reply:hover {
+  background-color: #0056b3;
+}
+
+/* ------------------ BOTONES (RIGHT COLUMN) ------------------ */
+.right-btn {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.right-btn:hover {
+  background-color: #0056b3;
+}
+
+/* ------------------ MEDIA QUERIES (RESPONSIVE) ------------------ */
+/* Ajustes para TABLETS (menores a 1024px) */
+@media (max-width: 1024px) {
+  .campus-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .left-column,
+  .middle-column,
+  .right-column {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+/* Ajustes para MÓVILES (menores a 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links-right {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .campus-container {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .left-column,
+  .middle-column,
+  .right-column {
+    width: 100%;
+    max-width: none;
+  }
+
+  .btn-formacion {
+    width: 100%;
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
