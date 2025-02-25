@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Calendario</title>
+  <link rel="stylesheet" href="campus_styles.css">
+</head>
+<body>
+  <!-- Navbar con logo y enlaces -->
+  <nav class="navbar">
+    <a href="index.html" class="logo" style="color: white; text-decoration: none;">Being Humans</a>
+    </a>
+    <ul class="nav-links-right">
+      <li><a href="campus.html">Log Out</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenedor con columna izquierda y calendario -->
+  <div class="campus-container">
+    <!-- Columna Izquierda: Botones de navegación -->
+    <div class="campus-column left-column">
+      <button class="btn-campus" onclick="location.href='mi_formacion.html'">Formación</button>
+      <button class="btn-campus" onclick="location.href='mi_comunidad.html'">Comunidad</button>
+    </div>
+
+    <!-- Columnas 2 y 3 con el calendario -->
+    <div class="campus-column calendar-column">
+      <div class="calendar-container">
+        <h2>Calendario</h2>
+        <table class="calendar">
+          <thead>
+            <tr>
+              <th>Lun</th>
+              <th>Mar</th>
+              <th>Mié</th>
+              <th>Jue</th>
+              <th>Vie</th>
+              <th>Sáb</th>
+              <th>Dom</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td><td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td>
+            </tr>
+            <tr>
+              <td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td>
+            </tr>
+            <tr>
+              <td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td>
+            </tr>
+            <tr>
+              <td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td>
+            </tr>
+            <tr>
+              <td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
