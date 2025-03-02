@@ -10,6 +10,21 @@ window.onload = function () {
     { id: "comunicacion", title: "*Comunicación*" },
     { id: "comunicacion-clase1", title: "Clase 1" },
     { id: "comunicacion-clase2", title: "Clase 2" },
+    { id: "proyectos", title: "*Gestión de Proyectos*" },
+    { id: "proyectos-clase1", title: "Clase 1" },
+    { id: "proyectos-clase2", title: "Clase 2" },
+    { id: "estres", title: "*Gestión del Estrés*" },
+    { id: "estres-clase1", title: "Clase 1" },
+    { id: "estres-clase2", title: "Clase 2" },
+    { id: "meditacion", title: "*Meditación*" },
+    { id: "meditacion-clase1", title: "Clase 1" },
+    { id: "meditacion-clase2", title: "Clase 2" },
+    { id: "cuerpo", title: "*Conexión con el Cuerpo*" },
+    { id: "cuerpo-clase1", title: "Clase 1" },
+    { id: "cuerpo-clase2", title: "Clase 2" },
+    { id: "nutricion", title: "*Nutrición*" },
+    { id: "nutricion-clase1", title: "Clase 1" },
+    { id: "nutricion-clase2", title: "Clase 2" },     
   ];
 
   // Comentario de ejemplo para cada sección principal
