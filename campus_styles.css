@@ -1,4 +1,6 @@
-/* Importar la tipografía original */
+/****************************************************************************
+  1. IMPORTS & BASE
+****************************************************************************/
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 
 body {
@@ -6,9 +8,12 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f5f5f5;
+  font-size: 16px;
 }
 
-/* Navbar */
+/****************************************************************************
+  2. NAVBAR
+****************************************************************************/
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -18,8 +23,15 @@ body {
 }
 
 .logo {
-    font-size: 20px;
-    font-weight: bold;
+  display: flex;
+  align-items: center;
+  /* Si usas texto en lugar de imagen en .logo:
+  font-size: 20px;
+  font-weight: bold;
+  */
+}
+.logo img {
+  height: 40px;
 }
 
 .nav-links-right {
@@ -29,14 +41,15 @@ body {
   margin: 0;
   padding: 0;
 }
-
 .nav-links-right li a {
   color: white;
   text-decoration: none;
   font-weight: bold;
 }
 
-/* Contenedor de tres columnas */
+/****************************************************************************
+  3. LAYOUT: campus-container & COLUMNAS
+****************************************************************************/
 .campus-container {
   display: flex;
   justify-content: space-between;
@@ -46,15 +59,16 @@ body {
   gap: 30px;
 }
 
-/* Distribución: 1 columna para botones, 2 columnas para contenido */
+/* Columna izquierda */
 .left-column {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
+  overflow-y: auto; 
+  max-height: 80vh;
+  text-align: left;
+  padding: 20px;
 }
 
+/* Columna central */
 .middle-column {
   flex: 2;
   display: flex;
@@ -63,6 +77,16 @@ body {
   gap: 20px;
 }
 
+/* Columna derecha */
+.right-column {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Una columna para el calendario, etc. */
 .calendar-column {
   flex: 2;
   display: flex;
@@ -70,64 +94,36 @@ body {
   align-items: center;
 }
 
-/* Notificación Popup */
-.notification {
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
+.campus-container, .middle-column, .right-column {
+    align-items: flex-start;
+    padding-top: 40px; /* Ajusta según necesites */
+}
+
+/****************************************************************************
+  4. ÍNDICE (LEFT COLUMN)
+****************************************************************************/
+.class-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.class-item {
+  padding: 8px 0;
+  color: #007BFF;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.class-item:hover {
+  color: #0056b3;
+}
+.active-item {
   font-weight: bold;
-  margin-bottom: 20px;
-  width: 90%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: #004080;
 }
 
-/* Cartel estilo foro */
-.forum-card {
-  background-color: white;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  text-align: left;
-}
-
-/* Botones con menú desplegable */
-.dropdown {
-  position: relative;
-  display: inline-block;
-  width: 80%;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 100%;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 10px;
-  display: block;
-  text-align: left;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* Botones */
+/****************************************************************************
+  5. BOTONES
+****************************************************************************/
 .btn-campus {
   display: block;
   width: 100%;
@@ -141,85 +137,13 @@ body {
   cursor: pointer;
   text-align: center;
   font-weight: bold;
+  transition: background-color 0.3s;
 }
-
 .btn-campus:hover {
   background-color: #0056b3;
 }
 
-/* Barra de progreso */
-.progress-section {
-  width: 90%;
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.progress-title {
-  font-size: 14px;
-  color: #555;
-  font-weight: bold;
-  display: block;
-  margin-bottom: 5px;
-}
-
-.progress-container {
-  background-color: #e0e0e0;
-  width: 100%;
-  height: 6px;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.progress-bar {
-  height: 100%;
-  background-color: #007BFF;
-  transition: width 0.5s ease-in-out;
-  width: 43%;
-}
-
-/* Restaurar estilos del calendario */
-.calendar-container {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  flex: 2;
-  width: 90%;
-}
-
-.calendar {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-}
-
-.calendar th, .calendar td {
-  border: 1px solid #ddd;
-  padding: 12px;
-  text-align: center;
-  font-size: 14px;
-}
-
-.calendar th {
-  background-color: #007BFF;
-  color: white;
-}
-
-.calendar td:hover {
-  background-color: #f0f0f0;
-  cursor: pointer;
-}
-
-/* Estilos para los botones de formación */
-.formacion-buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  margin-top: 20px;
-}
-
+/* Botón para la formación */
 .btn-formacion {
   width: 80%;
   padding: 15px;
@@ -231,313 +155,15 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
-/* Color azul y hover */
 .blue-button {
   background-color: #007BFF;
   color: white;
 }
-
 .blue-button:hover {
   background-color: #0056b3;
 }
 
-/* 📍 Configuración base: Diseño desktop */
-body {
-  font-size: 16px;
-}
-
-.campus-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 30px;
-  max-width: 1200px;
-  margin: auto;
-  gap: 30px;
-}
-
-/* 📍 Hacer que las columnas sean flexibles */
-.campus-column {
-  flex: 1;
-}
-
-/* 📍 Estilos de los botones en desktop */
-.btn-formacion {
-  width: 80%;
-  padding: 15px;
-  font-size: 18px;
-}
-
-/* 📍 Ajustes para TABLETS (pantallas menores a 1024px) */
-@media (max-width: 1024px) {
-  .campus-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-
-  .campus-column {
-    width: 100%;
-    text-align: center;
-  }
-
-  .btn-formacion {
-    width: 90%;
-    font-size: 16px;
-  }
-}
-
-/* 📍 Ajustes para MÓVILES (pantallas menores a 768px) */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .nav-links-right {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .campus-container {
-    flex-direction: column;
-    padding: 15px;
-  }
-
-  .btn-formacion {
-    width: 100%;
-    font-size: 14px;
-    padding: 12px;
-  }
-}
-
-/* 📌 Estilos para la columna izquierda (Índice de clases) */
-.left-column {
-  padding: 20px;
-}
-
-.section-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.class-list {
-  list-style: none;
-  padding: 0;
-}
-
-.class-item {
-  padding: 10px;
-  margin-bottom: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.class-item:hover {
-  background-color: #b0b0b0;
-}
-
-.next-section {
-  font-size: 16px;
-  font-weight: bold;
-  color: gray;
-  margin-top: 15px;
-}
-
-/* 📌 Estilos para la columna central (Foro) */
-.forum-box {
-  background-color: #f8f9fa;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.forum-input {
-  width: 90%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.forum-button {
-  background-color: #007BFF;
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.forum-button:hover {
-  background-color: #0056b3;
-}
-
-/* 📌 Estilos para los comentarios en el foro */
-.forum-comment {
-  background-color: white;
-  padding: 15px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  margin-top: 15px;
-}
-
-.forum-actions {
-  margin-top: 10px;
-}
-
-.like-button, .same-doubt-button, .reply-button {
-  background: none;
-  border: none;
-  color: #007BFF;
-  cursor: pointer;
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-.like-button.active, .same-doubt-button.active {
-  color: #0056b3;
-}
-
-/* 📌 Estilos para la columna derecha (Botones) */
-.right-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-
-.right-column button {
-  width: 80%;
-  padding: 10px;
-  font-size: 16px;
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.right-column button:hover {
-  background-color: #0056b3;
-}
-
-/* 📌 Estilos para el botón "Volver" */
-.back-button {
-  background-color: transparent;
-  color: #007BFF;
-  border: none;
-  font-size: 14px;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-.back-button:hover {
-  text-decoration: underline;
-}
-
-/* Estilos para la columna izquierda (Índice de clases) */
-.left-column {
-  padding: 20px;
-  text-align: left;
-  overflow-y: auto;
-  max-height: 80vh;
-}
-
-.section-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.class-list {
-  list-style: none;
-  padding: 0;
-}
-
-.class-item {
-  padding: 10px;
-  color: #007BFF;
-  text-decoration: none;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.class-item:hover {
-  color: #0056b3;
-}
-
-/* Estilos para la columna central (Foro) */
-.forum-feed {
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 600px;
-  margin: auto;
-}
-
-.forum-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.forum-button {
-  background-color: #007BFF;
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.forum-button:hover {
-  background-color: #0056b3;
-}
-
-.forum-comment {
-  background-color: white;
-  padding: 15px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  margin-top: 15px;
-}
-
-.forum-actions {
-  margin-top: 10px;
-}
-
-.like-button, .same-doubt-button, .reply-button {
-  background: none;
-  border: none;
-  color: #007BFF;
-  cursor: pointer;
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-.like-button.active, .same-doubt-button.active {
-  color: #0056b3;
-}
-
-/* Estilos para la columna derecha (Botones de acción) */
-.right-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-
+/* Botones de la columna derecha */
 .right-btn {
   width: 80%;
   padding: 10px;
@@ -548,13 +174,13 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-align: center;
 }
-
 .right-btn:hover {
   background-color: #0056b3;
 }
 
-/* Estilos para el botón "Volver" */
+/* Botón Volver */
 .back-button {
   background-color: transparent;
   color: #007BFF;
@@ -563,210 +189,127 @@ body {
   cursor: pointer;
   margin-top: 20px;
 }
-
 .back-button:hover {
   text-decoration: underline;
 }
-
-.left-column {
-  overflow-y: auto;
-  max-height: 80vh;
-  text-align: left;
-  padding: 0 20px;
-}
-
-.class-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.class-item {
-  padding: 8px 0;
-  color: #007BFF;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.class-item:hover {
-  color: #0056b3;
-}
-
-.active-item {
-  font-weight: bold;
-  color: #004080;
-}
-
-
-/* Importar la tipografía original */
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
-
-body {
-  font-family: 'Ubuntu', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f5f5f5;
-}
-
-/* ------------------ NAVBAR ------------------ */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #333;
-  padding: 12px 20px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo img {
-  height: 40px;
-}
-
-.nav-links-right {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links-right li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* ------------------ LAYOUT GENERAL ------------------ */
-.campus-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 30px;
-  max-width: 1200px;
-  margin: auto;
-  gap: 30px;
-}
-
-.left-column {
-  /* Inicialmente se mostrará vacío en mi_formacion.html */
-  overflow-y: auto;
-  max-height: 80vh;
-  text-align: left;
-  padding: 20px;
-  flex: 1;
-}
-
-.middle-column {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.right-column {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-
-/* ------------------ ÍNDICE DE CLASES (LEFT COLUMN) ------------------ */
-.class-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.class-item {
-  padding: 8px 0;
-  color: #007BFF;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.class-item:hover {
-  color: #0056b3;
-}
-
-.active-item {
-  font-weight: bold;
-  color: #004080;
-}
-
-/* ------------------ BOTÓN VOLVER (ARRIBA DEL FORO) ------------------ */
 .back-button-container {
   margin-bottom: 10px;
   width: 100%;
   text-align: left;
 }
 
-.back-button {
-  background-color: transparent;
-  color: #007BFF;
-  border: none;
+/****************************************************************************
+  6. EFECTOS FADE IN / OUT
+****************************************************************************/
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+}
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+/****************************************************************************
+  7. BARRA DE PROGRESO
+****************************************************************************/
+.progress-section {
+  width: 90%;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.progress-title {
   font-size: 14px;
-  cursor: pointer;
+  color: #555;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+.progress-container {
+  background-color: #e0e0e0;
+  width: 100%;
+  height: 6px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  background-color: #007BFF;
+  transition: width 0.5s ease-in-out;
+  width: 43%; 
 }
 
-.back-button:hover {
-  text-decoration: underline;
-}
-
-/* ------------------ FORO (MIDDLE COLUMN) ------------------ */
-.forum-feed {
+/****************************************************************************
+  8. FORO / NOTIFICACIONES / TARJETAS
+****************************************************************************/
+/* Notificaciones emergentes */
+.notification {
   background-color: #f8f9fa;
   padding: 20px;
   border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  width: 90%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 600px;
-  margin: auto; /* Centra el foro en la columna */
 }
 
-.forum-input {
+/* Tarjeta estilo foro */
+.forum-card {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  text-align: left;
+}
+
+/* Recipiente para un feed de foro */
+.forum-feed {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.foro-input {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
-
-.forum-button {
+.foro-button {
   background-color: #007BFF;
-  color: white;
-  padding: 8px 12px;
+  color: #fff;
   border: none;
   border-radius: 5px;
+  padding: 6px 12px;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-bottom: 15px; /* Separa el botón del resto */
 }
-
-.forum-button:hover {
+.foro-button:hover {
   background-color: #0056b3;
 }
 
-.forum-posts {
+.foro-posts {
   margin-top: 10px;
 }
 
-.forum-comment {
+.foro-comment {
   background-color: white;
   padding: 15px;
   border-radius: 8px;
   border: 1px solid #ddd;
   margin-top: 15px;
 }
-
-.forum-actions {
+.foro-actions {
   margin-top: 10px;
 }
-
 .like-button,
 .same-doubt-button,
 .reply-button {
@@ -777,13 +320,12 @@ body {
   font-weight: bold;
   margin-right: 10px;
 }
-
 .like-button.active,
 .same-doubt-button.active {
   color: #0056b3;
 }
 
-/* Cuadro para responder (reply-box) */
+/* Cuadro para respuesta */
 .reply-box {
   background-color: #fff;
   padding: 10px;
@@ -791,7 +333,6 @@ body {
   border-radius: 5px;
   margin-top: 10px;
 }
-
 .reply-input {
   width: 100%;
   padding: 8px;
@@ -799,7 +340,6 @@ body {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-
 .send-reply {
   background-color: #007BFF;
   color: #fff;
@@ -808,70 +348,159 @@ body {
   padding: 6px 12px;
   cursor: pointer;
 }
-
 .send-reply:hover {
   background-color: #0056b3;
 }
 
-/* ------------------ BOTONES (RIGHT COLUMN) ------------------ */
-.right-btn {
-  width: 80%;
-  padding: 10px;
-  font-size: 16px;
+/****************************************************************************
+  9. CALENDARIO (si lo usas)
+****************************************************************************/
+.calendar-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex: 2;
+  width: 90%;
+  margin: auto;
+}
+.calendar {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.calendar th,
+.calendar td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+}
+.calendar th {
   background-color: #007BFF;
   color: white;
-  border: none;
-  border-radius: 5px;
+}
+.calendar td:hover {
+  background-color: #f0f0f0;
   cursor: pointer;
-  transition: background-color 0.3s;
+}
+
+/****************************************************************************
+  10. COMUNIDAD: #entrepares, #1a1
+****************************************************************************/
+/* Cuadros en #entrepares */
+.comunidad-title {
+  margin: 0 0 15px;
   text-align: center;
 }
-
-.right-btn:hover {
-  background-color: #0056b3;
+.comunidad-cuadros {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  grid-gap: 20px;
+  justify-items: center;
+}
+.cuadro-entrepares {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.color-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  margin-bottom: 5px;
 }
 
-/* ------------------ MEDIA QUERIES (RESPONSIVE) ------------------ */
-/* Ajustes para TABLETS (menores a 1024px) */
+/* Recuadro chat en la derecha */
+.recuadro-chat {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+
+/* #1a1: Coach box y objetivos */
+.coach-box {
+  text-align: center;
+  margin: 20px 0;
+}
+.color-box-coach {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  background-color: #007BFF;
+  margin: 0 auto 8px;
+}
+
+/* Próximos objetivos en un recuadro */
+.objetivos-recuadro {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+}
+.objetivos-recuadro .todo-list {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+}
+.objetivos-recuadro .todo-list li {
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/****************************************************************************
+  11. MEDIA QUERIES (RESPONSIVE)
+****************************************************************************/
+
+/* TABLETS (<= 1024px) */
 @media (max-width: 1024px) {
   .campus-container {
     flex-direction: column;
     align-items: center;
     padding: 20px;
   }
-
   .left-column,
   .middle-column,
   .right-column {
     width: 100%;
     max-width: 600px;
   }
+  .btn-formacion {
+    width: 90%;
+    font-size: 16px;
+  }
 }
 
-/* Ajustes para MÓVILES (menores a 768px) */
+/* MÓVILES (<= 768px) */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     text-align: center;
   }
-
   .nav-links-right {
     flex-direction: column;
     gap: 10px;
   }
-
   .campus-container {
     flex-direction: column;
     padding: 15px;
   }
-
   .left-column,
   .middle-column,
   .right-column {
     width: 100%;
     max-width: none;
   }
-
   .btn-formacion {
     width: 100%;
     font-size: 14px;
@@ -879,128 +508,150 @@ body {
   }
 }
 
-/* Para la columna izquierda */
-.left-column #left-col-comunidad .class-list {
-  list-style: none;
-  padding: 0;
+/* Colores para el índice de formación */
+.azul-oscuro {
+    color: #003366;
+    font-weight: bold;
 }
 
-.left-column .class-item {
-  padding: 8px 0;
-  color: #007BFF;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-.left-column .class-item:hover {
-  color: #0056b3;
-}
-.left-column .active-item {
-  font-weight: bold;
-  color: #004080;
+.gris-claro {
+    color: #999;
 }
 
-/* Fade in / out */
+.class-item {
+    padding: 8px 0;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.class-item:hover {
+    color: #0056b3;
+}
+
+.active-item {
+    font-weight: bold;
+    color: #004080;
+}
+
+/* Navbar ajustes sin dropdowns */
+.btn-campus {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 15px;
+    transition: color 0.3s;
+    color: white;
+}
+
+.btn-campus:hover {
+    color: #f0f0f0;
+}
+
+/* Ajustes para la transición de contenido */
 .fade-in {
-  opacity: 1;
-  transition: opacity 0.3s ease-in;
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
 }
+
 .fade-out {
-  opacity: 0;
-  transition: opacity 0.3s ease-out;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
 }
 
-/* Columna central: entrepares */
-.comunidad-title {
-  margin-top: 0;
-  margin-bottom: 15px;
+/* Colores para el índice de formación */
+.azul-oscuro {
+    color: #003366;
+    font-weight: bold;
 }
 
-.comunidad-fotos {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+.gris-claro {
+    color: #999;
 }
 
-.foto-entrepares {
-  text-align: center;
+.class-item {
+    padding: 8px 0;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
-.entrepares-foto {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 5px;
+.class-item:hover {
+    color: #0056b3;
 }
 
-/* Columna derecha: entrepares input */
-.texto-pares {
-  margin-top: 15px;
-  text-align: center;
-}
-.texto-pares-input {
-  width: 80%;
-  display: block;
-  margin: 5px auto;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.active-item {
+    font-weight: bold;
+    color: #004080;
 }
 
-/* Columna central: #1a1 */
-.comunidad-unoauno {
-  text-align: center;
+.btn-campus {
+    background-color: #007BFF; /* Azul original */
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 12px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.coach-foto {
-  width: 120px;
-  height: 120px;
-  border-radius: 8px;
-  object-fit: cover;
-  margin-bottom: 5px;
+.btn-campus:hover {
+    background-color: #0056b3;
 }
 
-.objetivos-container {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
+/* Ocultar scrollbar pero mantener el scroll funcional */
+.left-column {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 80vh;
+    text-align: left;
+    padding: 20px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE y Edge */
 }
 
-.objetivo {
-  width: 90px;
-  height: 50px;
-  border-radius: 5px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.left-column::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
-.verde {
-  background-color: #28a745;
-}
-.amarillo {
-  background-color: #ffc107;
-  color: #000;
-}
-.rojo {
-  background-color: #dc3545;
+/* Ajuste de alineación general para coherencia estética */
+.campus-container, .middle-column, .right-column {
+    align-items: flex-start;
+    padding-top: 40px;
 }
 
-/* Columna derecha: #1a1 input */
-.texto-coach {
-  margin-top: 15px;
-  text-align: center;
+
+html, body {
+    overflow: hidden; /* Evita el scroll en toda la web */
 }
 
-.texto-coach-input {
-  width: 80%;
-  display: block;
-  margin: 5px auto;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+
+.class-item[data-id="proyectos"],
+.class-item[data-id="proyectos-clase1"],
+.class-item[data-id="proyectos-clase2"],
+.class-item[data-id="estres"],
+.class-item[data-id="estres-clase1"],
+.class-item[data-id="estres-clase2"],
+.class-item[data-id="meditacion"],
+.class-item[data-id="meditacion-clase1"],
+.class-item[data-id="meditacion-clase2"],
+.class-item[data-id="cuerpo"],
+.class-item[data-id="cuerpo-clase1"],
+.class-item[data-id="cuerpo-clase2"],
+.class-item[data-id="nutricion"],
+.class-item[data-id="nutricion-clase1"],
+.class-item[data-id="nutricion-clase2"] {
+    color: #999;
 }
 
+/* Recuadro de imagen para Conversaciones */
+.recuadro-imagen {
+    width: 500px;
+    height: 400px;
+    background-color: #ddd;
+    border-radius: 8px;
+    margin: 10px auto;
+}
 

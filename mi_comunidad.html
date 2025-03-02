@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Comunidad</title>
+  <!-- Asegúrate de apuntar a tu gran styles.css unificado -->
+  <link rel="stylesheet" href="campus_styles.css" />
+  <!-- Script para manejar la lógica de comunidad -->
+  <script defer src="comunidad_script.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+    <nav class="navbar">
+    <a href="mi_campus.html" class="logo" style="color: white; text-decoration: none;">Being Humans</a>
+    <ul class="nav-links-right">
+	<li><a href="mi_formacion.html">Formación</a></li>
+	<li><a href="mi_comunidad.html">Comunidad</a></li>
+    <li><a href="mi_calendario.html">Mi Calendario</a></li>
+    <li><a href="campus.html">Log Out</a></li> <!-- Redirige a campus.html -->
+  </ul>
+</nav>
+
+  <!-- Contenedor de 3 columnas -->
+  <div class="campus-container">
+    <!-- Columna Izquierda: índice con #entrepares y #1a1 -->
+    <div class="campus-column left-column" id="left-col-comunidad">
+<ul class="class-list">
+    <li class="class-item active-item" onclick="cambiarComunidad('entrepares')">#entrepares</li>
+    <li class="class-item" onclick="cambiarComunidad('1a1')">#1a1</li>
+    <li class="class-item" onclick="cambiarComunidad('conversaciones')">#conversaciones</li>
+</ul>
+
+
+    </div>
+
+    <!-- Columna Central -->
+    <div class="campus-column middle-column fade-in" id="middle-col-comunidad">
+      <!-- Se llenará dinámicamente con comunidad_script.js -->
+    </div>
+
+    <!-- Columna Derecha -->
+    <div class="campus-column right-column fade-in" id="right-col-comunidad">
+      <!-- También se llenará dinámicamente con comunidad_script.js -->
+    </div>
+  </div>
+</body>
+</html>

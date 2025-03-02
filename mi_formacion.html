@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Formación</title>
-  <link rel="stylesheet" href="campus_styles.css">
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Formación</title>
+    <link rel="stylesheet" href="CAMPUS_styles.css">
+    <script defer src="formacion_script.js"></script>
 </head>
 <body>
-  <!-- Navbar -->
+     <!-- Navbar con logo a la izquierda y en el lado derecho "Mi Calendario" y "Log Out" -->
   <nav class="navbar">
     <a href="mi_campus.html" class="logo" style="color: white; text-decoration: none;">Being Humans</a>
     <ul class="nav-links-right">
-      <li><a href="mi_formacion.html">Formación</a></li>
-      <li><a href="mi_comunidad.html">Comunidad</a></li>
-      <li><a href="mi_calendario.html">Mi Calendario</a></li>
-      <li><a href="campus.html">Log Out</a></li>
-    </ul>
-  </nav>
+	<li><a href="mi_formacion.html">Formación</a></li>
+	<li><a href="mi_comunidad.html">Comunidad</a></li>
+    <li><a href="mi_calendario.html">Mi Calendario</a></li>
+    <li><a href="campus.html">Log Out</a></li> <!-- Redirige a campus.html -->
+  </ul>
+</nav>
 
-  <!-- Contenedor de 3 columnas -->
-  <div class="campus-container">
-    <div class="campus-column left-column"></div>
-    
-    <!-- Columna Central -->
-    <div class="campus-column middle-column">
-      <div class="formacion-content" id="formacion-content">
-        <h2 class="formacion-title">Selecciona una categoría</h2>
-        <div class="formacion-buttons">
-          <button class="btn-formacion blue-button" onclick="cambiarContenido('equipos')">Organización de Equipos</button>
-          <button class="btn-formacion blue-button" onclick="cambiarContenido('estrategia')">Estrategia</button>
-          <button class="btn-formacion blue-button" onclick="cambiarContenido('comunicacion')">Comunicación y Expresión</button>
+
+    <div class="campus-container">
+        <div class="campus-column left-column">
+            <ul class="class-list">
+                <li class="class-item azul-oscuro" onclick="cambiarContenido('equipos')">Gestión de Equipos</li>
+                <li class="class-item azul-oscuro" onclick="cambiarContenido('equipos-clase1')">Clase 1</li>
+                <li class="class-item azul-oscuro" onclick="cambiarContenido('equipos-clase2')">Clase 2</li>
+                <li class="class-item" onclick="cambiarContenido('estrategia')">Estrategia</li>
+                <li class="class-item gris-claro" onclick="cambiarContenido('comunicacion')">Comunicación - Clase 1 y 2</li>
+                <li class="class-item gris-claro" onclick="cambiarContenido('gestion-proyectos')">Gestión de Proyectos</li>
+                <li class="class-item gris-claro" onclick="cambiarContenido('gestion-estres')">Gestión del Estrés</li>
+                <li class="class-item gris-claro" onclick="cambiarContenido('mediacion')">Mediación</li>
+                <li class="class-item gris-claro" onclick="cambiarContenido('conexion-cuerpo')">Conexión con el Cuerpo</li>
+                <li class="class-item gris-claro" onclick="cambiarContenido('nutricion')">Nutrición</li>
+            </ul>
         </div>
-      </div>
+        
+        <div class="campus-column middle-column" id="content-area">
+            <h2>Bienvenido a Formación</h2>
+            <p>Selecciona una categoría del índice.</p>
+        </div>
+        
+        <div class="campus-column right-column"></div>
     </div>
-    
-    <div class="campus-column right-column"></div>
-  </div>
-<script src="formacion_script.js"></script>
 </body>
 </html>
