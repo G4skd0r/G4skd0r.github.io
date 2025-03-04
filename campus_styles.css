@@ -400,6 +400,7 @@ body {
   grid-gap: 20px;
   justify-items: center;
 }
+
 .cuadro-entrepares {
   display: flex;
   flex-direction: column;
