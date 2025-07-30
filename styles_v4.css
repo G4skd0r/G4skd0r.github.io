@@ -151,3 +151,22 @@ h1,h2{
     .contact{padding:3rem 1.5rem;}
     .contact-card{padding:2rem 1.5rem;}
 }
+
+::selection{
+  background:var(--dark);   /* marrón */
+  color:var(--light);       /* beige */
+}
+::-moz-selection{
+  background:var(--dark);
+  color:var(--light);
+}
+
+/* Selección invertida dentro del HERO */
+.hero ::selection{
+  background:var(--light);  /* beige */
+  color:var(--dark);        /* marrón */
+}
+.hero ::-moz-selection{
+  background:var(--light);
+  color:var(--dark);
+}
