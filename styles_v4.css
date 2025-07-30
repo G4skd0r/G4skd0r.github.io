@@ -1,0 +1,153 @@
+/* PALETA */
+:root{
+    --dark:#312113;
+    --light:#f2dcd1;
+}
+
+/* RESET */
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+    font-family:'DM Sans',sans-serif;
+    background-color:var(--light);
+    color:var(--dark);
+    overflow-x:hidden;
+}
+h1,h2{
+    font-family:'Zen Kaku Gothic New',sans-serif;
+    font-weight:700;
+}
+
+/* HERO */
+.hero{
+    position:relative;
+    min-height:100vh;
+    background-color:var(--dark);
+    color:var(--light);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 10vw;
+    text-align:left;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("A_seamless_vector-like_pattern_features_hand-drawn white.png") repeat;
+  opacity:0.025;          /* subí/bajá para hacerla más/menos visible */
+  pointer-events:none;   /* para que no bloquee clics ni scroll */
+  z-index:-1;            /* detrás del texto */
+}
+.hero{ position:relative; }  /* ¡ya está en el CSS! */
+
+.hero h1{
+    max-width:800px;
+    font-size:clamp(2.5rem, 6vw + 1rem, 4rem);
+    line-height:1.2;
+}
+
+/* Subtítulo del hero */
+.hero-sub{
+  font-family:'DM Sans', sans-serif;   /* misma fuente que el body */
+  font-size:clamp(1.25rem, 3vw + .5rem, 1rem);
+  font-weight:400;
+  margin-top:1rem;                     /* separa del título */
+  line-height:1.4;
+  text-align:center;   /* centra sólo el h2, aunque el <section> esté alineado a la izquierda */
+  opacity:0.75;        /* poné el valor que prefieras: 1 = sin transparencia */
+  width:100%;          /* garantiza que ocupe todo el ancho para que el centrado funcione */
+}
+
+/* ABOUT */
+.about{
+    background-color:var(--light);
+    padding:4rem 10vw;
+}
+.about-wrapper{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+}
+.about-col{
+    flex:1 1 50%;
+    padding:2rem; /* espacio interior ("border") */
+}
+/* Texto */
+.about-text{
+    display:flex;
+    flex-direction:column;
+    gap:1.5rem;
+    font-size:1.125rem;
+    line-height:1.6;
+}
+/* Placeholder / futuro media */
+.about-placeholder{
+    width:100%;
+    aspect-ratio:1/1;   /* cuadrado */
+    background-color:var(--dark);
+    border-radius:1rem;
+}
+/* Si lo reemplazás por una imagen:
+   .about-image{width:100%;height:auto;border-radius:1rem;}
+*/
+
+/* CONTACTO */
+.contact{
+    background-color:var(--light);
+    display:flex;
+    justify-content:center;
+    padding:4rem 10vw;
+}
+.contact-card{
+    background-color:var(--dark);
+    color:var(--light);
+    border-radius:1rem;
+    padding:2rem 3rem;
+    max-width:600px;
+    width:100%;
+    text-align:center;
+    box-shadow:0 6px 16px rgba(0,0,0,.2);
+}
+.contact-card h2{
+    margin-bottom:1.5rem;
+    font-size:2rem;
+}
+.social-links{
+    display:flex;
+    justify-content:center;
+    gap:2rem;
+}
+.social-links a svg{
+    width:40px;
+    height:40px;
+    fill:var(--light);
+    transition:transform .3s ease;
+}
+.social-links a:hover svg{
+    transform:scale(1.1);
+}
+
+/* ANIMACIÓN */
+.fade-in{
+    opacity:0;
+    transform:translateY(20px);
+    animation:fadeIn 1s ease forwards;
+}
+@keyframes fadeIn{
+    to{opacity:1;transform:translateY(0);}
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .hero h1{font-size:clamp(1.75rem,7vw,2.5rem);}
+    .about{padding:3rem 1.5rem;}
+    .about-col{
+        flex:1 1 100%;
+        padding:1.5rem 0;
+    }
+    .about-placeholder{aspect-ratio:16/9;} /* rectangular en mobile */
+    .contact{padding:3rem 1.5rem;}
+    .contact-card{padding:2rem 1.5rem;}
+}
