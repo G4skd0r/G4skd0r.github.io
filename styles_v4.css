@@ -35,7 +35,7 @@ h1,h2{
   position:absolute;
   inset:0;
   background:url("A_seamless_vector-like_pattern_features_hand-drawn white.png") repeat;
-  opacity:0.025;          /* subí/bajá para hacerla más/menos visible */
+  opacity:0.05;          /* subí/bajá para hacerla más/menos visible */
   pointer-events:none;   /* para que no bloquee clics ni scroll */
   z-index:-1;            /* detrás del texto */
 }
@@ -64,35 +64,48 @@ h1,h2{
     background-color:var(--light);
     padding:4rem 10vw;
 }
+/* Layout 2 columnas 50/50 */
 .about-wrapper{
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    justify-content:center;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 50 / 50 */
+  gap: 2.5rem;                    /* “border” de aire entre columnas */
+  align-items: center;            /* o start si querés alineado arriba */
 }
-.about-col{
-    flex:1 1 50%;
-    padding:2rem; /* espacio interior ("border") */
-}
-/* Texto */
-.about-text{
-    display:flex;
-    flex-direction:column;
-    gap:1.5rem;
-    font-size:1.125rem;
-    line-height:1.6;
-}
-/* Placeholder / futuro media */
-.about-placeholder{
-    width:100%;
-    aspect-ratio:1/1;   /* cuadrado */
-    background-color:var(--dark);
-    border-radius:1rem;
-}
-/* Si lo reemplazás por una imagen:
-   .about-image{width:100%;height:auto;border-radius:1rem;}
-*/
 
+/* eliminamos paddings que podían empujar columnas */
+.about-col{ padding: 0; }
+
+/* Columna de texto */
+.about-text{
+  display: grid;
+  gap: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+/* Columna de imagen – mantiene formato cuadrado */
+.about-media{
+  width: 100%;
+  aspect-ratio: 1 / 1;           /* cuadrado */
+}
+
+.about-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;              /* recorta sin deformar */
+  border-radius: 1rem;
+  display: block;
+}
+
+/* Responsive: se apilan (texto primero, imagen después) */
+@media (max-width: 768px){
+  .about-wrapper{
+    grid-template-columns: 1fr;   /* una sola columna */
+  }
+  .about-media{
+    aspect-ratio: 16 / 9;         /* más agradable en móvil */
+  }
+}
 /* CONTACTO */
 .contact{
     background-color:var(--light);
@@ -169,4 +182,139 @@ h1,h2{
 .hero ::-moz-selection{
   background:var(--light);
   color:var(--dark);
+}
+
+/* QUIENES SOMOS */
+.team{
+  background: var(--light);
+  color: var(--dark);
+  padding: 4rem 10vw 3rem;
+}
+
+.section-title{
+  text-align: center;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  margin-bottom: 3.5rem;   /* antes era ~2rem */
+}
+
+.team-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem 2.5rem; /* espacio entre tarjetas */
+}
+
+.member{
+  /* contenedor del perfil */
+}
+
+.member-name{
+  display: block;                 /* ocupa el ancho del card = igual al párrafo */
+  width: 100%;
+  text-align: center;             /* nombre centrado */
+  background: var(--dark);
+  color: var(--light);
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-weight: 700;
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.member-bio{
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Si usás foto: */
+.member-photo{
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  margin-bottom: .75rem;
+  display: block;
+}
+
+/* Responsivo */
+@media (max-width: 1100px){
+  .team-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px){
+  .team{ padding: 3rem 1.25rem; }
+  .team-grid{ grid-template-columns: 1fr; }
+}
+
+/* ============ Retiros / Otras actividades (alineado a la izquierda) ============ */
+.retreats{
+  background: var(--light);
+  color: var(--dark);
+  padding: 5rem 10vw 3.5rem;
+}
+
+/* subtítulos a la izquierda */
+.section-subtitle{
+  text-align: left;                 /* antes: center */
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  margin: 0 0 1.25rem 0;            /* aire debajo del subtítulo */
+}
+
+/* columna de lectura a la izquierda (sin centrar el bloque) */
+.text-block{
+  width: min(900px, 100%);          /* límite cómodo de lectura */
+  max-width: 900px;
+  margin: 0 0 2.5rem 0;             /* antes: 0 auto 2.5rem; */
+  display: grid;
+  gap: 1.25rem;
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+/* responsive (opcional: solo ajusta padding) */
+@media (max-width: 640px){
+  .retreats{ padding: 3.5rem 1.25rem 2.5rem; }
+  .text-block{ width: 100%; max-width: 46ch; }
+}
+
+/* Foto en Retiros */
+/* Foto en Retiros - centrada */
+.retreat-photo{
+  width: min(900px, 100%);  /* ancho de lectura cómodo */
+  margin: 0 auto 2.5rem;    /* <-- centra horizontalmente */
+}
+
+.retreat-photo img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 1rem;
+}
+
+.retreat-photo figcaption{
+  font-size: 0.875rem;
+  margin-top: .5rem;
+  color: var(--dark);
+  opacity: .65;
+  text-align: center;        /* título centrado */
+}
+
+/* móvil: sólo ajusta padding de la sección si querés */
+@media (max-width: 640px){
+  .retreat-photo{ width: 100%; }
+}
+
+/* Email en Contacto */
+.contact-email{
+  margin-top: 1rem;           /* espacio respecto a los íconos */
+  text-align: center;
+  font-size: 1.0625rem;
+}
+
+.contact-email a{
+  color: var(--light);         /* crema sobre fondo marrón */
+  text-decoration: none;
+  border-bottom: 1px solid rgba(242,220,209,.45); /* subrayado sutil */
+  padding-bottom: 2px;
+}
+
+.contact-email a:hover{
+  border-bottom-color: currentColor;  /* más marcado al hover */
 }
