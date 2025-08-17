@@ -1,7 +1,9 @@
 /* PALETA */
 :root{
-    --dark:#312113;
-    --light:#f2dcd1;
+  --dark:#312113;
+  --light:#f2dcd1;
+  --media-max: clamp(320px, 70vw, 1100px); /* mismo ancho para ambos bloques */
+  --gallery-gap: 2rem;                      /* separación entre las 2 verticales */
 }
 
 /* RESET */
@@ -274,26 +276,23 @@ h1,h2{
   .text-block{ width: 100%; max-width: 46ch; }
 }
 
-/* Foto en Retiros */
-/* Foto en Retiros - centrada */
+/* Foto en Retiros - centrada y mismo ancho que la galería */
 .retreat-photo{
-  width: min(900px, 100%);  /* ancho de lectura cómodo */
-  margin: 0 auto 2.5rem;    /* <-- centra horizontalmente */
+  width: var(--media-max);    /* <<< igual que la galería */
+  margin: 0 auto 2.5rem;
 }
-
 .retreat-photo img{
   width: 100%;
   height: auto;
   display: block;
   border-radius: 1rem;
 }
-
 .retreat-photo figcaption{
-  font-size: 0.875rem;
+  font-size: .875rem;
   margin-top: .5rem;
   color: var(--dark);
   opacity: .65;
-  text-align: center;        /* título centrado */
+  text-align: center;
 }
 
 /* móvil: sólo ajusta padding de la sección si querés */
@@ -317,4 +316,25 @@ h1,h2{
 
 .contact-email a:hover{
   border-bottom-color: currentColor;  /* más marcado al hover */
+}
+
+/* Galería vertical debajo de la foto horizontal */
+.retreat-gallery{
+  width: var(--media-max);                     /* <<< mismo ancho */
+  margin: 0 auto 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: var(--gallery-gap);                     /* separación del medio */
+}
+.retreat-gallery .retreat-vert{
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 1rem;
+  display: block;
+}
+
+/* Mobile */
+@media (max-width: 768px){
+  .retreat-gallery{ grid-template-columns: 1fr; }
 }
