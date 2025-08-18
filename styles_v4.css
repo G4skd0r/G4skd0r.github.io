@@ -2,8 +2,8 @@
 :root{
   --dark:#312113;
   --light:#f2dcd1;
-  --media-max: clamp(320px, 70vw, 1100px); /* mismo ancho para ambos bloques */
-  --gallery-gap: 2rem;                      /* separación entre las 2 verticales */
+  --content-max: clamp(320px, 70vw, 1100px); /* ancho único del sitio */
+  --media-max: var(--content-max);           /* foto horizontal + galería usan esto */
 }
 
 /* RESET */
@@ -61,17 +61,14 @@ h1,h2{
   width:100%;          /* garantiza que ocupe todo el ancho para que el centrado funcione */
 }
 
-/* ABOUT */
-.about{
-    background-color:var(--light);
-    padding:4rem 10vw;
-}
-/* Layout 2 columnas 50/50 */
+.about{ padding-block: 4rem; }          /* ya no hace falta 10vw */
 .about-wrapper{
+  width: var(--content-max);            /* ancho unificado */
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 50 / 50 */
-  gap: 2.5rem;                    /* “border” de aire entre columnas */
-  align-items: center;            /* o start si querés alineado arriba */
+  grid-template-columns: 1fr 1fr;       /* 50/50 */
+  gap: 2.5rem;
+  align-items: center;
 }
 
 /* eliminamos paddings que podían empujar columnas */
@@ -337,4 +334,16 @@ h1,h2{
 /* Mobile */
 @media (max-width: 768px){
   .retreat-gallery{ grid-template-columns: 1fr; }
+}
+
+/* Limita el ancho de los hijos directos de cada sección (excepto hero) */
+:where(.about, .team, .retreats, .contact) > *{
+  width: min(var(--content-max), 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* padding horizontal mínimo para conservar “aire” en bordes chicos */
+.about, .team, .retreats, .contact{
+  padding-inline: 1.25rem; /* antes usabas 10vw en algunas */
 }
